@@ -15,7 +15,7 @@ Produk katalog[100];
 int jumlahProduk = 0;
 
 void loadData() {
-    FILE *file = fopen("shopeaseFile.txt", "r");
+    FILE *file = fopen("shopease_db.txt", "r");
     if (file == NULL) {
         cout << "File tidak bisa ditemukan. Mulai lagi dengan data kosong:(\n";
         return;
@@ -31,7 +31,7 @@ void loadData() {
 }
 
 void saveData() {
-    FILE *file = fopen("shopeaseFile.txt", "w");
+    FILE *file = fopen("shopease_db.txt", "w");
     if (file == NULL) {
         cout << "Gagal simpan file!\n";
         return;
