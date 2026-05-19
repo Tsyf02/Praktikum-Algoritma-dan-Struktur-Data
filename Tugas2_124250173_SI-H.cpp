@@ -24,6 +24,8 @@ struct QueueNode {
 int kapasitas = 5;
 int jumlahParkir = 0;
 
+
+// pada fungsi ini buat bikin node baru
 Kendaraan* buatNode(string nopol, string nama) {
     Kendaraan* baru = new Kendaraan();
     baru->nopol = nopol;
@@ -34,6 +36,7 @@ Kendaraan* buatNode(string nopol, string nama) {
     return baru;
 }
 
+// FUNGSI NYA dibuat buat nambahin kendaraan ke BST .
 Kendaraan* tambah(Kendaraan* root, string nopol, string nama) {
     if (root == NULL) return buatNode(nopol, nama);
     if (nopol < root->nopol)
@@ -42,13 +45,13 @@ Kendaraan* tambah(Kendaraan* root, string nopol, string nama) {
         root->kanan = tambah(root->kanan, nopol, nama);
     return root;
 }
-
+//kITA nyari kendaraan di BST .
 Kendaraan* cari(Kendaraan* root, string nopol) {
     if (root == NULL || root->nopol == nopol) return root;
     if (nopol < root->nopol) return cari(root->kiri, nopol);
     return cari(root->kanan, nopol);
 }
-
+// show all vehicle
 void tampil(Kendaraan* root) {
     if (root == NULL) return;
     tampil(root->kiri);
@@ -61,6 +64,7 @@ Kendaraan* cariMin(Kendaraan* root) {
     return root;
 }
 
+// fungsi buat hapus node
 Kendaraan* hapus(Kendaraan* root, string nopol, bool& ketemu) {
     if (root == NULL) {
         ketemu = false;
